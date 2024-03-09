@@ -1,6 +1,32 @@
-<script setup>
+<script>
+import axios from 'axios';
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+
+export default {
+  name: 'App',
+  components: {
+    RouterLink,
+    RouterView,
+    HelloWorld
+  },
+  data() {
+    return {
+      apiKey: "World!"
+    };
+  },
+  created() {
+    axios.get('/')
+      .then(response => {
+        // Handle the response data here
+        console.log(response.data);
+      })
+      .catch(error => {
+        // Handle the error here
+        console.error(error);
+      });
+  },
+}
 </script>
 
 <template>
@@ -9,6 +35,10 @@ import HelloWorld from './components/HelloWorld.vue'
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
+      <el-button type="primary">Hello from Element Plus</el-button>
+      <h1 class="text-3xl font-bold underline">
+        Hello From TailwindCSS
+      </h1>
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
