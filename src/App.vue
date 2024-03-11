@@ -10,11 +10,6 @@ export default {
     RouterView,
     HelloWorld
   },
-  data() {
-    return {
-      apiKey: "World!"
-    };
-  },
   created() {
     axios.get('/')
       .then(response => {
@@ -26,6 +21,11 @@ export default {
         console.error(error);
       });
   },
+  computed: {
+    defaultEnvsByVite() {
+      return import.meta.env
+    }
+  }
 }
 </script>
 
@@ -39,6 +39,9 @@ export default {
       <h1 class="text-3xl font-bold underline">
         Hello From TailwindCSS
       </h1>
+      <p>
+        Default Envs By Vite: {{ defaultEnvsByVite }}
+      </p>
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
