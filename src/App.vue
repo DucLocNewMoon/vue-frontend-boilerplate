@@ -36,6 +36,13 @@ export default {
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
       <el-button type="primary">Hello from Element Plus</el-button>
+      <v-btn
+        prepend-icon="$vuetify"
+        append-icon="$vuetify"
+        variant="outlined"
+      >
+        Hello From Vuetify
+      </v-btn>
       <h1 class="text-3xl font-bold underline">
         Hello From TailwindCSS
       </h1>
