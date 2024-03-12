@@ -13,6 +13,7 @@ import * as directives from 'vuetify/directives'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import App from './App.vue'
+import apolloProvider from './utils/apollo'
 import router from './router'
 
 const app = createApp(App)
@@ -29,5 +30,6 @@ app.use(router)
 app.use(axios)
 app.use(vuetify)
 app.use(ElementPlus)
+app.use(apolloProvider)
 
 app.mount('#app')
